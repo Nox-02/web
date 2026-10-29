@@ -1,4 +1,4 @@
-#How to Use This Repo on GitHub
+# How to Use This Repo on GitHub
 A quick guide to the workflow we use here: issues, branches, pull requests, CI, and merging.
 
 1. Create an issue (user story, bug, or task)
