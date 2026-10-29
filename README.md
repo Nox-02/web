@@ -1,47 +1,5 @@
-# update-readme.ps1
-# Rewrites README.md as a "how to use GitHub" guide, opens a PR, waits for CI,
-# squash-merges it, and syncs your local main. Run from anywhere.
-
-$ErrorActionPreference = 'Stop'
-
-function Check($step) {
-    if ($LASTEXITCODE -ne 0) { throw "Failed at: $step" }
-}
-
-$repoPath = Join-Path $env:USERPROFILE 'Documents\web'
-$branch   = 'docs/github-guide'
-
-Set-Location $repoPath
-
-# --- Make sure tools exist and gh is logged in ---
-foreach ($tool in 'git', 'gh') {
-    if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) {
-        throw "$tool is not installed or not on PATH."
-    }
-}
-gh auth status | Out-Null
-Check 'gh auth status (run: gh auth login)'
-
-# --- Start from a clean, up-to-date main ---
-$dirty = git status --porcelain
-if ($dirty) { throw "You have uncommitted changes. Commit or stash them first." }
-
-git checkout main;  Check 'checkout main'
-git pull;           Check 'pull main'
-
-# If the branch already exists locally, remove it so we start fresh
-git show-ref --verify --quiet "refs/heads/$branch"
-if ($LASTEXITCODE -eq 0) { git branch -D $branch; Check 'delete old local branch' }
-
-git checkout -b $branch; Check 'create branch'
-
-# --- Write the README ---
-$readme = @'
-# How to Use This Repo on GitHub
-
+#How to Use This Repo on GitHub
 A quick guide to the workflow we use here: issues, branches, pull requests, CI, and merging.
-
-## The workflow at a glance
 
 1. Create an issue (user story, bug, or task)
 2. Create a branch from `main`
