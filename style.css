@@ -1,0 +1,140 @@
+
+/* ---------- Licht thema (standaard) ---------- */
+:root,
+:root[data-thema="licht"] {
+  --kleur-achtergrond: #F6F7F9;
+  --kleur-oppervlak: #FFFFFF;
+  --kleur-ondersteunend: #D2D7DC;
+  --kleur-primair: #34495E;
+  --kleur-accent: #B5651D;
+  --kleur-tekst: #1F2A36;
+
+  --kleur-rand: var(--kleur-ondersteunend);
+  --kleur-link: var(--kleur-primair);
+  --kleur-tekst-op-primair: #FFFFFF;
+  --kleur-tekst-op-accent: #FFFFFF;
+}
+
+/* ---------- Donker thema (automatisch via apparaat) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-thema="licht"]) {
+    --kleur-achtergrond: #161D25;
+    --kleur-oppervlak: #202A35;
+    --kleur-ondersteunend: #34495E;
+    --kleur-primair: #34495E;
+    --kleur-accent: #D98A3D;
+    --kleur-tekst: #D2D7DC;
+
+    --kleur-rand: #34495E;
+    --kleur-link: #8FA6BD;
+    --kleur-tekst-op-primair: #FFFFFF;
+    --kleur-tekst-op-accent: #161D25;
+  }
+}
+
+/* ---------- Donker thema (handmatig) ---------- */
+:root[data-thema="donker"] {
+  --kleur-achtergrond: #161D25;
+  --kleur-oppervlak: #202A35;
+  --kleur-ondersteunend: #34495E;
+  --kleur-primair: #34495E;
+  --kleur-accent: #D98A3D;
+  --kleur-tekst: #D2D7DC;
+
+  --kleur-rand: #34495E;
+  --kleur-link: #8FA6BD;
+  --kleur-tekst-op-primair: #FFFFFF;
+  --kleur-tekst-op-accent: #161D25;
+}
+
+/* ---------- Basisstijlen ---------- */
+body {
+  background-color: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+a {
+  color: var(--kleur-link);
+}
+
+a:hover {
+  color: var(--kleur-accent);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--kleur-rand);
+}
+
+/* ---------- Koptekst en navigatie ---------- */
+.kopbalk {
+  background-color: var(--kleur-primair);
+  color: var(--kleur-tekst-op-primair);
+  padding: 1rem 1.5rem;
+}
+
+.kopbalk a {
+  color: var(--kleur-tekst-op-primair);
+  text-decoration: none;
+}
+
+.kopbalk a:hover {
+  color: var(--kleur-ondersteunend);
+}
+
+/* ---------- Kaarten ---------- */
+.kaart {
+  background-color: var(--kleur-oppervlak);
+  border: 1px solid var(--kleur-rand);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* ---------- Knoppen ---------- */
+.knop {
+  display: inline-block;
+  background-color: var(--kleur-accent);
+  color: var(--kleur-tekst-op-accent);
+  border: 0;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.knop:hover {
+  filter: brightness(1.08);
+}
+
+.knop-primair {
+  background-color: var(--kleur-primair);
+  color: var(--kleur-tekst-op-primair);
+}
+
+.knop-omlijnd {
+  background-color: transparent;
+  color: var(--kleur-link);
+  border: 2px solid var(--kleur-link);
+}
+
+/* ---------- Formulieren ---------- */
+input,
+textarea,
+select {
+  background-color: var(--kleur-oppervlak);
+  color: var(--kleur-tekst);
+  border: 1px solid var(--kleur-rand);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--kleur-accent);
+  outline-offset: 1px;
+}
