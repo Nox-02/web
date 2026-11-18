@@ -1,0 +1,22 @@
+KLEURENPALET WEBSITE
+
+Basiskleuren
+Primair:          #34495E
+Accent:           #B5651D
+Ondersteunend:    #D2D7DC
+
+LICHT THEMA
+Achtergrond:      #F6F7F9
+Oppervlak:        #FFFFFF
+Ondersteunend:    #D2D7DC
+Primair:          #34495E
+Accent:           #B5651D
+Tekst:            #1F2A36
+
+DONKER THEMA
+Achtergrond:      #161D25
+Oppervlak:        #202A35
+Primair:          #34495E
+Link / highlight: #8FA6BD
+Accent:           #D98A3D
+Tekst:            #D2D7DC
