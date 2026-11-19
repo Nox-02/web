@@ -1,0 +1,140 @@
+
+main {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2% 0;
+}
+
+h1 {
+  font-size: 200%;
+  line-height: 1.2;
+}
+
+.producten,
+.diensten {
+  list-style: none;
+  margin: 3% 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+
+.producten li,
+.diensten li {
+  box-sizing: border-box;
+  width: 23.5%;
+  margin-bottom: 2%;
+  padding: 2%;
+  background-color: var(--kleur-oppervlak);
+  border: 1px solid var(--kleur-rand);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+  transition: transform 0.15s ease;
+}
+
+.type {
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--kleur-link);
+}
+
+.naam {
+  margin: 0;
+  font-size: 115%;
+  line-height: 1.3;
+}
+
+.prijs {
+  margin: auto 0 0;
+  padding-top: 4%;
+  font-size: 140%;
+  font-weight: 600;
+  color: var(--kleur-accent);
+}
+
+.eenheid {
+  font-size: 65%;
+  font-weight: 400;
+  color: var(--kleur-tekst);
+  opacity: 0.75;
+}
+
+.voorraad {
+  margin: 0;
+  font-size: 90%;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1% 3%;
+  border-radius: 999px;
+  font-size: 85%;
+  font-weight: 600;
+}
+
+.badge-voldoende {
+  background-color: var(--kleur-primair);
+  color: var(--kleur-tekst-op-primair);
+}
+
+.badge-bestellen {
+  background-color: var(--kleur-accent);
+  color: var(--kleur-tekst-op-accent);
+}
+
+@media (hover: hover) {
+  .producten li:hover,
+  .diensten li:hover {
+    transform: translateY(-3px);
+    border-color: var(--kleur-accent);
+  }
+}
+
+/* Tablet liggend: 3 kolommen */
+@media (max-width: 1100px) {
+  .producten li,
+  .diensten li {
+    width: 31.3%;
+    padding: 3%;
+  }
+}
+
+/* Tablet staand: 2 kolommen */
+@media (max-width: 760px) {
+  main {
+    width: 94%;
+  }
+
+  .producten,
+  .diensten {
+    gap: 4%;
+  }
+
+  .producten li,
+  .diensten li {
+    width: 48%;
+    margin-bottom: 4%;
+    padding: 4%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .producten li,
+  .diensten li {
+    width: 100%;
+    padding: 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .producten li,
+  .diensten li {
+    transition: none;
+  }
+}
