@@ -1,5 +1,3 @@
-
-/* ---------- Licht thema (standaard) ---------- */
 :root,
 :root[data-thema="licht"] {
   --kleur-achtergrond: #F6F7F9;
@@ -15,7 +13,6 @@
   --kleur-tekst-op-accent: #FFFFFF;
 }
 
-/* ---------- Donker thema (automatisch via apparaat) ---------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-thema="licht"]) {
     --kleur-achtergrond: #161D25;
@@ -32,7 +29,6 @@
   }
 }
 
-/* ---------- Donker thema (handmatig) ---------- */
 :root[data-thema="donker"] {
   --kleur-achtergrond: #161D25;
   --kleur-oppervlak: #202A35;
@@ -47,7 +43,6 @@
   --kleur-tekst-op-accent: #161D25;
 }
 
-/* ---------- Basisstijlen ---------- */
 body {
   background-color: var(--kleur-achtergrond);
   color: var(--kleur-tekst);
@@ -69,7 +64,6 @@ hr {
   border-top: 1px solid var(--kleur-rand);
 }
 
-/* ---------- Koptekst en navigatie ---------- */
 .kopbalk {
   background-color: var(--kleur-primair);
   color: var(--kleur-tekst-op-primair);
@@ -85,7 +79,6 @@ hr {
   color: var(--kleur-ondersteunend);
 }
 
-/* ---------- Kaarten ---------- */
 .kaart {
   background-color: var(--kleur-oppervlak);
   border: 1px solid var(--kleur-rand);
@@ -93,7 +86,6 @@ hr {
   padding: 1.5rem;
 }
 
-/* ---------- Knoppen ---------- */
 .knop {
   display: inline-block;
   background-color: var(--kleur-accent);
@@ -121,7 +113,6 @@ hr {
   border: 2px solid var(--kleur-link);
 }
 
-/* ---------- Formulieren ---------- */
 input,
 textarea,
 select {
@@ -137,4 +128,67 @@ textarea:focus,
 select:focus {
   outline: 2px solid var(--kleur-accent);
   outline-offset: 1px;
+}
+
+.knop:hover { color: var(--kleur-tekst-op-accent); }
+.knop-primair:hover { color: var(--kleur-tekst-op-primair); }
+.knop-omlijnd:hover { color: var(--kleur-accent); }
+.band a { color: inherit; }
+.band a:hover { color: var(--kleur-ondersteunend); }
+
+.thema-knop,
+.thema-menu {
+  --thema-afstand-rand: 1rem;
+  --thema-knop-grootte: 3rem;
+}
+
+.thema-knop {
+  position: fixed;
+  right: var(--thema-afstand-rand);
+  bottom: var(--thema-afstand-rand);
+  width: var(--thema-knop-grootte);
+  height: var(--thema-knop-grootte);
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--kleur-accent);
+  color: var(--kleur-tekst-op-accent);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.thema-menu {
+  inset: auto var(--thema-afstand-rand)
+         calc(var(--thema-afstand-rand) + var(--thema-knop-grootte) + 0.5rem)
+         auto;
+  margin: 0;
+  min-width: 11rem;
+  padding: 0.5rem;
+  background-color: var(--kleur-oppervlak);
+  color: var(--kleur-tekst);
+  border: 1px solid var(--kleur-rand);
+  border-radius: 12px;
+}
+
+.thema-optie {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: transparent;
+  color: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.thema-optie:hover {
+  background-color: var(--kleur-achtergrond);
+}
+
+:root:not([data-thema]) .thema-optie[data-kies="auto"],
+:root[data-thema="licht"] .thema-optie[data-kies="licht"],
+:root[data-thema="donker"] .thema-optie[data-kies="donker"] {
+  background-color: var(--kleur-primair);
+  color: var(--kleur-tekst-op-primair);
 }
